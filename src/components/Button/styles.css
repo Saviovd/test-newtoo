@@ -1,0 +1,24 @@
+.button {
+  font-family: "Nunito", Arial;
+  padding: 10px;
+  color: #FFFFFF;
+  background-color: #3248F2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  outline: none;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.button-content {
+  font-weight: 500;
+  font-size: 17px;
+}
+
+.button>.icon {
+  font-size: 20px;
+  fill: #FFFFFF;
+}
