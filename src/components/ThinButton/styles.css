@@ -1,0 +1,24 @@
+.thin-button {
+  font-family: "Nunito", Arial;
+  padding: 10px;
+  color: #6A6A6A;
+  border: 1px solid #CDCDCD;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.thin-button>.button-content {
+  font-weight: 500;
+  font-size: 17px;
+}
+
+.thin-button>.icon {
+  font-size: 20px;
+  fill: #6A6A6A;
+}

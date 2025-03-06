@@ -14,6 +14,7 @@
   padding: 40px 0 100px;
   border-right: 1px solid #D9E1EC;
   overflow: hidden;
+  z-index: 100;
 }
 
 .toggle-sidebar {

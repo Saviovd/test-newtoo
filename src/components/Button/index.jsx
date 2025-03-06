@@ -1,9 +1,9 @@
 import React from 'react';
 import './styles.css';
 
-const Button = ({ content, icon, action }) => {
+const Button = ({ content, icon, action, fill = true }) => {
   return (
-    <button className="button" onClick={action}>
+    <button className={fill ? "button" : "unfilled"} onClick={action}>
       {icon && icon}
       <span className="button-content">{content}</span>
     </button>

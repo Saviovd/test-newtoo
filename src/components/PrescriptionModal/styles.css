@@ -1,0 +1,111 @@
+.outside {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+
+.modal {
+  background-color: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  width: 90%;
+  min-height: 400px;
+  max-width: 1100px;
+  font-family: "nunito";
+}
+
+.content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  width: 100%;
+  border-bottom: 1px solid #A5A5A5;
+  padding: 15px 0 10px 15px;
+  margin-bottom: 15px;
+  font-weight: 300;
+  font-size: 20px;
+  position: relative;
+}
+
+.title>.close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}
+
+.input-group {
+  display: flex;
+  gap: 20px;
+  width: 95%;
+  margin: 15px auto;
+}
+
+.input-group>div {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  margin: 0 0 10px 0;
+}
+
+.input-group>div>label {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.input-group>div>.input {
+  background-color: transparent;
+  border: 1px solid #D9E1EC;
+  border-radius: 10px;
+  color: #A5A5A5;
+  font-weight: 300;
+  padding: 5px 10px;
+  outline: none;
+}
+
+.input-group>div>select {
+  min-width: 210px;
+}
+
+.input-group>div>.input>option {
+  color: #000;
+}
+
+.textarea {
+  border: 1px solid #D9E1EC;
+  background-color: transparent;
+  padding: 10px;
+  border-radius: 5px;
+  resize: none;
+  width: 95%;
+  margin: 0 auto;
+  min-height: 220px;
+  color: #000;
+  font-family: "nunito";
+}
+
+.modal>.buttons {
+  border-top: 1px solid #D9E1EC;
+  margin-top: 15px;
+  padding: 15px 50px 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.modal>.buttons>.button {
+  width: fit-content;
+}

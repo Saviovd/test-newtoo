@@ -6,6 +6,7 @@ import { IoPlayOutline, IoCloseOutline } from "react-icons/io5";
 import Button from "../Button";
 import PrescriptionModal from "../PrescriptionModal";
 import CertificateModal from "../CertificateModal";
+import { AnimatePresence } from "framer-motion";
 
 const MedicalRecord = () => {
 	const [time, setTime] = useState(0);
@@ -74,13 +75,16 @@ const MedicalRecord = () => {
 				/>
 			</div>
 
-			{showPrescriptionModal && (
-				<PrescriptionModal onClose={() => setShowPrescriptionModal(false)} />
-			)}
-
-			{showCertificateModal && (
-				<CertificateModal onClose={() => setShowCertificateModal(false)} />
-			)}
+			<AnimatePresence>
+				{showPrescriptionModal && (
+					<PrescriptionModal onClose={() => setShowPrescriptionModal(false)} />
+				)}
+			</AnimatePresence>
+			<AnimatePresence>
+				{showCertificateModal && (
+					<CertificateModal onClose={() => setShowCertificateModal(false)} />
+				)}
+			</AnimatePresence>
 		</div>
 	);
 };
