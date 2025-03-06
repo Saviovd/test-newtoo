@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./styles.css";
 import { IoCloseOutline } from "react-icons/io5";
 import { IoIosMail } from "react-icons/io";
@@ -8,6 +8,42 @@ import ThinButton from "../ThinButton";
 import { motion } from "framer-motion";
 
 const CertificateModal = ({ onClose }) => {
+	const textareaRef = useRef(null);
+
+	const handlePrint = () => {
+		const content = textareaRef.current.value;
+		const printWindow = window.open("", "_blank");
+		printWindow.document.write(`
+			<html>
+				<head>
+					<title>Documentação</title>
+					<style>
+						body { font-family: Arial, sans-serif; padding: 20px; }
+						h2 { text-align: center; }
+						.prescription { 
+							border: 1px solid #000; 
+							padding: 10px; 
+							margin-top: 20px; 
+							font-size: 16px;
+						}
+					</style>
+				</head>
+				<body>
+					<h2>Documentação</h2>
+					<p><strong>Data:</strong> ${new Date().toLocaleDateString("pt-BR")}</p>
+					<div class="prescription">${content.replace(/\n/g, "<br>")}</div>
+					<script>
+						window.onload = function() {
+							window.print();
+							window.close();
+						}
+					</script>
+				</body>
+			</html>
+		`);
+		printWindow.document.close();
+	};
+
 	return (
 		<motion.div
 			initial={{ opacity: 0 }}
@@ -20,7 +56,7 @@ const CertificateModal = ({ onClose }) => {
 			<div className="modal" onClick={(e) => e.stopPropagation()}>
 				<div className="content">
 					<h2 className="title">
-						Prescrição <IoCloseOutline onClick={onClose} className="close" />
+						Documentação <IoCloseOutline onClick={onClose} className="close" />
 					</h2>
 					<div className="input-group">
 						<div>
@@ -28,7 +64,7 @@ const CertificateModal = ({ onClose }) => {
 							<input
 								type="date"
 								id="date"
-								defaultValue={new Date().toLocaleDateString("pt-BR")}
+								defaultValue={new Date().toISOString().split("T")[0]}
 								className="input"
 							/>
 						</div>
@@ -42,6 +78,7 @@ const CertificateModal = ({ onClose }) => {
 						</div>
 					</div>
 					<textarea
+						ref={textareaRef}
 						placeholder="Digite a prescrição aqui..."
 						className="textarea"
 					/>
@@ -51,15 +88,19 @@ const CertificateModal = ({ onClose }) => {
 						<ThinButton
 							content="Enviar por E-mail"
 							icon={<IoIosMail className="icon" />}
+							action={() => console.log('Enviado para o e-mail do paciente')}
+							size={2}
 						/>
 						<ThinButton
 							content="Imprimir"
 							icon={<FiPrinter style={{ fontSize: "20px" }} />}
+							action={handlePrint}
+							size={2}
 						/>
 					</div>
 					<div className="buttons-group">
-						<Button content={"Salvar e adicionar outro"} fill={false} />
-						<Button content={"Salvar"} />
+						<Button content={"Salvar e adicionar outro"} fill={false} action={() => console.log('Salvo no histórico do paciente.')} size={2}/>
+						<Button content={"Salvar"} action={() => console.log('Salvo no histórico do paciente.')} size={2}/>
 					</div>
 				</div>
 			</div>

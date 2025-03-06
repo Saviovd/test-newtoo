@@ -74,7 +74,7 @@ const PrescriptionModal = ({ onClose }) => {
 					/>
 				</div>
 				<div className="buttons">
-					<Button content={"Imprimir"} icon={<FiPrinter />} action={handlePrint} />
+					<Button content={"Imprimir"} icon={<FiPrinter />} action={handlePrint} size={2} />
 				</div>
 			</div>
 		</motion.div>
